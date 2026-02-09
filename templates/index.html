@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDO List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar fw-bold"  style="background-color: #deeffc;" data-bs-theme="light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('home')}}">ToDo</a>
+    </div>
+    </nav>
+
+
+    <h1 class="text-center mt-5">Today's Task</h1>
+    <div class="container mt-4">
+        <form method="POST" action="/add">
+            <div class="input-group mb-3">
+                <input type="text" name="task" class="form-control" placeholder="Add a new task" required>
+                <button class="btn btn-info" style="background-color: #96d2ff;" type="submit">Add</button>
+            </div>
+        </form>
+
+        <br><br>
+
+        <h1 class="text-left mt-3">ToDo List</h1>
+
+        {% if tasks|length == 0 %}
+            <p class="text-center">No tasks added yet. Start by adding a new task above! 😊</p>.
+
+        {% else %}
+
+        <ul class="list-group">
+
+        {% set pending_tasks = tasks | selectattr("status", "equalto", "pending") | list %}
+
+        {% if pending_tasks|length == 0 %}
+            <li class="list-group-item text-center">No pending tasks 🎉</li>
+        {% else %}
+            {% for task in pending_tasks %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ task.task }}
+                    <a href="/done/{{ task.id }}" class="btn btn-secondary btn-sm">Done</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+        </ul>
+
+                <br><br>
+
+                <h1 class="text-left mt-3">Completed Tasks</h1>
+                <ul class="list-group">
+                {% set completed_tasks = tasks | selectattr("status", "equalto", "done") | list %}
+                    {% if completed_tasks|length == 0 %}
+                       <li class="list-group-item text-center">No completed tasks yet 😒</li>
+                    {% else %}
+                 {% for task in completed_tasks %}
+                 
+                    {%if task.status == "done" %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center ">
+                        <span class="text-decoration-line-through text-muted">
+                        {{ task.task }}
+                        </span>
+                        <a href="/delete/{{ task.id }}" class="btn btn-danger btn-sm">Delete</a>
+                    </li>
+                    {%endif %}
+                {% endfor %}
+                {% endif %}
+                </ul>
+
+                {% endif %}
+</body>
+</html>
