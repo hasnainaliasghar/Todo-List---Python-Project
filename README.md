@@ -170,8 +170,8 @@ Feel free to open an [issue](https://github.com/your-username/flask-todo/issues)
 
 <br/>
 
-[![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red?style=for-the-badge)](https://github.com/your-username)
-[![GitHub followers](https://img.shields.io/github/followers/your-username?style=for-the-badge&logo=github)](https://github.com/your-username)
+[![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red?style=for-the-badge)](https://github.com/hasnainaliasghar)
+[![GitHub followers](https://img.shields.io/github/followers/your-username?style=for-the-badge&logo=github)](https://github.com/hasnainaliasghar)
 
 <br/>
 
