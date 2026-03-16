@@ -21,16 +21,6 @@
 
 ---
 
-## 🎬 Demo
-
-<div align="center">
-  <img src="https://media.giphy.com/media/your-demo-gif-id/giphy.gif" alt="App Demo" width="700"/>
-  
-  > 📌 *Replace the GIF above with a screen recording of your app (use [LICEcap](https://www.cockos.com/licecap/) or [ShareX](https://getsharex.com/) to record)*
-</div>
-
----
-
 ## ✨ Features
 
 <div align="center">
